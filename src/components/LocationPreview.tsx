@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { MapPin, ExternalLink } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { HTMLAttributeReferrerPolicy } from 'react'
@@ -16,6 +16,8 @@ interface LocationPreviewProps {
 }
 
 function extractMapAttributes(iframeHtml: string) {
+  if (typeof window === 'undefined') return null
+  
   const parser = new DOMParser()
   const doc = parser.parseFromString(iframeHtml, 'text/html')
   const iframe = doc.querySelector('iframe')
@@ -32,8 +34,12 @@ function extractMapAttributes(iframeHtml: string) {
 
 export function LocationPreview({ name, address, coordinates, mapEmbedUrl }: LocationPreviewProps) {
   const [isHovered, setIsHovered] = useState(false)
-  const mapAttributes = extractMapAttributes(mapEmbedUrl)
+  const [mapAttributes, setMapAttributes] = useState<ReturnType<typeof extractMapAttributes>>(null)
   const directionsUrl = `https://www.google.com/maps?q=${coordinates.lat},${coordinates.lng}`
+
+  useEffect(() => {
+    setMapAttributes(extractMapAttributes(mapEmbedUrl))
+  }, [mapEmbedUrl])
 
   return (
     <div 
