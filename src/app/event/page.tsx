@@ -7,6 +7,7 @@ import { events } from './data'
 import { formatDateTime, formatNumber } from '@/lib/utils'
 import { MediaGallery } from '@/components/MediaGallery'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ShareMenu } from '@/components/ShareMenu'
 
 interface ExpandableTextProps {
   text: string;
@@ -103,10 +104,10 @@ export default function Event() {
                 <MessageCircle className="w-5 h-5 text-purple-500" />
                 <span className="text-zinc-700 font-medium">{formatNumber(event.engagement.comments)}</span>
               </button>
-              <button className="flex items-center gap-2 bg-white hover:bg-purple-50 px-6 py-3 rounded-xl transition duration-200 border border-zinc-200 shadow-sm">
-                <Share2 className="w-5 h-5 text-purple-500" />
-                <span className="text-zinc-700 font-medium">{formatNumber(event.engagement.shares)}</span>
-              </button>
+              <ShareMenu 
+                url={`https://yourdomain.com/event/${event.id}`} 
+                title={event.title}
+              />
             </div>
           </article>
         ))}

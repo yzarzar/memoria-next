@@ -45,6 +45,19 @@ export const events: Event[] = [
         type: 'image',
         url: event_photo,
       },
+      {
+        type: 'image',
+        url: event_photo,
+      },
+      {
+        type: 'video',
+        url: 'https://www.youtube.com/watch?v=Gv7torZn5lM',
+        thumbnail: event_photo,
+      },
+      {
+        type: 'image',
+        url: event_photo,
+      },
     ],
     author: {
       name: "John Doe",
