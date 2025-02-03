@@ -1,6 +1,10 @@
 import { StaticImageData } from "next/image";
 import event_photo from '@/assets/images/event_photo.jpg'
 import profile_photo from '@/assets/images/profile.jpeg'
+import image1 from '@/assets/images/image1.jpg'
+import image2 from '@/assets/images/image2.jpg'
+import image3 from '@/assets/images/image3.jpg'
+import image4 from '@/assets/images/image4.jpg'
 
 export interface MediaItem {
   type: 'image' | 'video';
@@ -12,6 +16,15 @@ export interface Event {
   id: number;
   title: string;
   date: string;
+  location: {
+    name: string;
+    address: string;
+    coordinates: {
+      lat: number;
+      lng: number;
+    };
+    mapEmbedUrl: string; // Stores complete iframe HTML
+  };
   media: MediaItem[];  // Array of media items
   author: {
     name: string;
@@ -31,6 +44,15 @@ export const events: Event[] = [
     id: 1,
     title: "Neon Future Tech Conference 2025",
     date: "25 January at 10:05",
+    location: {
+      name: "Tech Hub Conference Center",
+      address: "123 Innovation Street, Yangon, Myanmar",
+      coordinates: {
+        lat: 16.8565544,
+        lng: 96.120903
+      },
+      mapEmbedUrl: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3868.234145708889!2d96.12540327520964!3d16.850453783948083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c195357ede6a39%3A0x2578df713e3b85c7!2sBuilding%2019%2C%20MICT%20Park!5e1!3m2!1sen!2smm!4v1738575092174!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+    },
     media: [
       {
         type: 'image',
@@ -57,6 +79,22 @@ export const events: Event[] = [
       {
         type: 'image',
         url: event_photo,
+      },
+      {
+        type: 'image',
+        url: image1,
+      },
+      {
+        type: 'image',
+        url: image2,
+      },
+      {
+        type: 'image',
+        url: image3,
+      },
+      {
+        type: 'image',
+        url: image4,
       },
     ],
     author: {
@@ -64,290 +102,11 @@ export const events: Event[] = [
       email: "email@example.com",
       avatar: profile_photo,
     },
-    description: "Dive into the future of AI, blockchain, and quantum computing at the biggest tech event of the year. Join industry leaders and innovators for groundbreaking discussions on emerging technologies. Dive into the future of AI, blockchain, and quantum computing at the biggest tech event of the year. Join industry leaders and innovators for groundbreaking discussions on emerging technologies. Dive into the future of AI, blockchain, and quantum computing at the biggest tech event of the year. Join industry leaders and innovators for groundbreaking discussions on emerging technologies. Dive into the future of AI, blockchain, and quantum computing at the biggest tech event of the year. Join industry leaders and innovators for groundbreaking discussions on emerging technologies. Dive into the future of AI, blockchain, and quantum computing at the biggest tech event of the year. Join industry leaders and innovators for groundbreaking discussions on emerging technologies. Dive into the future of AI, blockchain, and quantum computing at the biggest tech event of the year. Join industry leaders and innovators for groundbreaking discussions on emerging technologies. Dive into the future of AI, blockchain, and quantum computing at the biggest tech event of the year. Join industry leaders and innovators for groundbreaking discussions on emerging technologies. Dive into the future of AI, blockchain, and quantum computing at the biggest tech event of the year. Join industry leaders and innovators for groundbreaking discussions on emerging technologies. Dive into the future of AI, blockchain, and quantum computing at the biggest tech event of the year. Join industry leaders and innovators for groundbreaking discussions on emerging technologies.",
+    description: "## About The Event\nDive into the future of *AI*, *blockchain*, and *quantum computing* at the biggest tech event of the year.\n\nJoin industry leaders and innovators for groundbreaking discussions on emerging technologies. Our keynote speakers include **Dr. Sarah Chen** from [Quantum Labs](https://quantum.example.com) and **Michael Zhang** from [Future AI Institute](https://ai.example.com).\n\n## Event Highlights\n- Live demonstrations of next-gen quantum computers with `quantum-sdk-v2`\n- Interactive AI workshops using *machine learning* techniques\n- Blockchain implementation strategies for `web3` applications\n- Networking opportunities with industry pioneers\n\n## Technical Sessions\n1. Advanced Neural Networks in Practice\n2. Quantum Computing: Beyond Theory\n3. Blockchain Scalability Solutions\n\nThis year's conference focuses on practical applications and real-world impact of these transformative technologies. [Learn more →](https://conference.example.com)\n\n*Don't miss this opportunity to be part of the future.*",
     engagement: {
       likes: 215000,
       comments: 150,
       shares: 21,
-    },
-  },
-  {
-    id: 2,
-    title: "Global AI Summit 2025",
-    date: "15 March at 14:00",
-    media: [
-      {
-        type: 'image',
-        url: event_photo,
-      },
-      {
-        type: 'video',
-        url: 'https://www.youtube.com/watch?v=YkCDVn3_wiw',
-        thumbnail: event_photo,
-      },
-      {
-        type: 'image',
-        url: event_photo,
-      },
-    ],
-    author: {
-      name: "Sarah Chen",
-      email: "sarah.chen@example.com",
-      avatar: profile_photo,
-    },
-    description: "Experience the world's premier AI conference featuring breakthrough research presentations, workshops, and networking with leading AI researchers and practitioners.",
-    engagement: {
-      likes: 189000,
-      comments: 234,
-      shares: 45,
-    },
-  },
-  {
-    id: 3,
-    title: "Blockchain Revolution Summit",
-    date: "5 April at 09:30",
-    media: [
-      {
-        type: 'image',
-        url: event_photo,
-      },
-      {
-        type: 'video',
-        url: 'https://www.youtube.com/watch?v=QFc7jXZ2pdE',
-        thumbnail: event_photo,
-      },
-      {
-        type: 'image',
-        url: event_photo,
-      },
-    ],
-    author: {
-      name: "Michael Johnson",
-      email: "m.johnson@example.com",
-      avatar: profile_photo,
-    },
-    description: "Explore the latest developments in blockchain technology, DeFi, and Web3. Connect with industry pioneers and discover the future of decentralized systems.",
-    engagement: {
-      likes: 156000,
-      comments: 180,
-      shares: 32,
-    },
-  },
-  {
-    id: 4,
-    title: "Quantum Computing Expo 2025",
-    date: "20 May at 11:00",
-    media: [
-      {
-        type: 'image',
-        url: event_photo,
-      },
-      {
-        type: 'video',
-        url: 'https://www.youtube.com/watch?v=rHjolP34pyc',
-        thumbnail: event_photo,
-      },
-      {
-        type: 'image',
-        url: event_photo,
-      },
-    ],
-    author: {
-      name: "Emily Williams",
-      email: "e.williams@example.com",
-      avatar: profile_photo,
-    },
-    description: "Witness the quantum revolution firsthand with demonstrations of cutting-edge quantum computers and discussions on their practical applications.",
-    engagement: {
-      likes: 142000,
-      comments: 195,
-      shares: 28,
-    },
-  },
-  {
-    id: 5,
-    title: "Cybersecurity World Conference",
-    date: "10 June at 14:15",
-    media: [
-      {
-        type: 'image',
-        url: event_photo,
-      },
-      {
-        type: 'video',
-        url: 'https://www.youtube.com/watch?v=VMHCyzTP4oE',
-        thumbnail: event_photo,
-      },
-      {
-        type: 'image',
-        url: event_photo,
-      },
-    ],
-    author: {
-      name: "David Kim",
-      email: "d.kim@example.com",
-      avatar: profile_photo,
-    },
-    description: "Join top security experts to discuss emerging threats, advanced protection strategies, and the future of digital security in an interconnected world.",
-    engagement: {
-      likes: 167000,
-      comments: 220,
-      shares: 38,
-    },
-  },
-  {
-    id: 6,
-    title: "IoT Innovation Summit",
-    date: "3 July at 13:45",
-    media: [
-      {
-        type: 'image',
-        url: event_photo,
-      },
-      {
-        type: 'video',
-        url: 'https://www.youtube.com/watch?v=5bevi_0v6wU',
-        thumbnail: event_photo,
-      },
-      {
-        type: 'image',
-        url: event_photo,
-      },
-    ],
-    author: {
-      name: "Lisa Anderson",
-      email: "l.anderson@example.com",
-      avatar: profile_photo,
-    },
-    description: "Discover the latest in IoT technology, smart cities, and connected devices. Learn how IoT is transforming industries and shaping our future.",
-    engagement: {
-      likes: 134000,
-      comments: 165,
-      shares: 25,
-    },
-  },
-  {
-    id: 7,
-    title: "Digital Transformation Forum",
-    date: "22 August at 09:30",
-    media: [
-      {
-        type: 'image',
-        url: event_photo,
-      },
-      {
-        type: 'video',
-        url: 'https://www.youtube.com/watch?v=naQ0RuXB3fI',
-        thumbnail: event_photo,
-      },
-      {
-        type: 'image',
-        url: event_photo,
-      },
-    ],
-    author: {
-      name: "Robert Martinez",
-      email: "r.martinez@example.com",
-      avatar: profile_photo,
-    },
-    description: "Learn how leading organizations are leveraging digital technologies to transform their operations and create new value for customers.",
-    engagement: {
-      likes: 145000,
-      comments: 178,
-      shares: 29,
-    },
-  },
-  {
-    id: 8,
-    title: "Cloud Computing Summit 2025",
-    date: "15 September at 10:00",
-    media: [
-      {
-        type: 'image',
-        url: event_photo,
-      },
-      {
-        type: 'video',
-        url: 'https://www.youtube.com/watch?v=nxqA3VHKE-s&t=1456s',
-        thumbnail: event_photo,
-      },
-      {
-        type: 'image',
-        url: event_photo,
-      },
-    ],
-    author: {
-      name: "Anna Thompson",
-      email: "a.thompson@example.com",
-      avatar: profile_photo,
-    },
-    description: "Explore the latest trends in cloud computing, serverless architecture, and multi-cloud strategies with industry experts.",
-    engagement: {
-      likes: 178000,
-      comments: 198,
-      shares: 35,
-    },
-  },
-  {
-    id: 9,
-    title: "5G & Beyond Conference",
-    date: "8 October at 11:30",
-    media: [
-      {
-        type: 'image',
-        url: event_photo,
-      },
-      {
-        type: 'video',
-        url: 'https://www.youtube.com/watch?v=FgzyLoSkL5k',
-        thumbnail: event_photo,
-      },
-      {
-        type: 'image',
-        url: event_photo,
-      },
-    ],
-    author: {
-      name: "James Wilson",
-      email: "j.wilson@example.com",
-      avatar: profile_photo,
-    },
-    description: "Discover how 5G and future communication technologies are enabling new possibilities in connectivity and digital experiences.",
-    engagement: {
-      likes: 156000,
-      comments: 187,
-      shares: 31,
-    },
-  },
-  {
-    id: 10,
-    title: "Future of Work Summit",
-    date: "12 November at 15:00",
-    media: [
-      {
-        type: 'image',
-        url: event_photo,
-      },
-      {
-        type: 'video',
-        url: 'https://www.youtube.com/watch?v=DpQQi2scsHo&t=1s',
-        thumbnail: event_photo,
-      },
-      {
-        type: 'image',
-        url: event_photo,
-      },
-    ],
-    author: {
-      name: "Sophie Brown",
-      email: "s.brown@example.com",
-      avatar: profile_photo,
-    },
-    description: "Explore how AI, automation, and digital transformation are reshaping the workplace and creating new opportunities for innovation.",
-    engagement: {
-      likes: 189000,
-      comments: 225,
-      shares: 42,
     },
   },
 ]; 
