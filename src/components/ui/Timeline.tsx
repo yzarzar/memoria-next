@@ -37,13 +37,25 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.5 }}
+          className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl"
+        >
           Timeline of Our Events{" "}
-        </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm"
+        >
           From past to present, see how our events have evolved over time in
           this interactive timeline.
-        </p>
+        </motion.p>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">

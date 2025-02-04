@@ -278,3 +278,20 @@
       shares: 42,
     },
   },
+
+  ===============
+  <div className="h-[100vh] w-full relative" ref={ref}>
+      <ImagesSlider images={images} autoplay={true} direction="up">
+        <div className="absolute inset-0 z-50">
+          <GoogleGeminiEffect
+            pathLengths={[
+              pathLengthFirst,
+              pathLengthSecond,
+              pathLengthThird,
+              pathLengthFourth,
+              pathLengthFifth,
+            ]}
+            className="pt-20"
+          />
+        </div>
+      </ImagesSlider>

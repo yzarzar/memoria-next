@@ -1,10 +1,11 @@
-import Image from "next/image";
+import { Hero } from "@/components/ui/Hero";
 import { EventTimeline } from "./EventTimeline";
 
 export default function Home() {
   return (
-    <div>
+    <main>
+      <Hero />
       <EventTimeline />
-    </div>
+    </main>
   );
 }

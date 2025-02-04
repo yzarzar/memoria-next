@@ -44,7 +44,7 @@ const TimelineContent = ({ images, index }: { images: number[]; index: number })
     <div
       ref={containerRef}
       onWheel={handleScroll}
-      className="relative z-20 max-w-7xl overflow-x-auto overflow-y-hidden hide-scrollbar [mask-image:linear-gradient(to_right,transparent,white_20%,white)]"
+      className="relative z-20 max-w-7xl overflow-x-auto overflow-y-hidden hide-scrollbar [mask-image:linear-gradient(to_right,transparent,white_10%,white)]"
     >
       <div
         ref={scrollerRef}
