@@ -88,12 +88,12 @@ export function CommentModal({ isOpen, onClose, eventId, comments }: CommentModa
             className={cn(
               "fixed w-full bg-white shadow-xl z-50 flex flex-col",
               isExpanded 
-                ? "inset-8 md:inset-16 rounded-2xl max-h-[90vh] md:max-w-4xl md:mx-auto" 
-                : "inset-x-4 bottom-0 md:inset-x-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:max-w-lg rounded-t-2xl md:rounded-2xl max-h-[90vh]"
+                ? "inset-0 md:inset-16 rounded-none md:rounded-2xl max-h-[100vh] md:max-h-[90vh] md:max-w-4xl md:mx-auto" 
+                : "inset-x-0 bottom-0 md:inset-x-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:max-w-lg rounded-t-2xl md:rounded-2xl max-h-[85vh] md:max-h-[90vh]"
             )}
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b flex-shrink-0">
+            <div className="flex items-center justify-between p-4 md:p-6 border-b flex-shrink-0">
               <h2 className="text-lg font-semibold text-zinc-900">Comments</h2>
               <div className="flex items-center gap-2">
                 <button
@@ -116,7 +116,7 @@ export function CommentModal({ isOpen, onClose, eventId, comments }: CommentModa
             </div>
 
             {/* Comments List */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4">
               {comments.length === 0 ? (
                 <div className="text-center text-zinc-500 py-8">
                   No comments yet. Be the first to comment!
@@ -250,7 +250,7 @@ export function CommentModal({ isOpen, onClose, eventId, comments }: CommentModa
             </div>
 
             {/* Comment Input */}
-            <form onSubmit={handleSubmit} className="p-4 border-t flex-shrink-0">
+            <form onSubmit={handleSubmit} className="p-4 md:p-6 border-t flex-shrink-0">
               <div className="flex items-center gap-3">
                 <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                   <Image

@@ -10,10 +10,16 @@ import { EventDescription } from '@/components/EventDescription'
 import { LocationPreview } from '@/components/LocationPreview'
 import { CommentModal } from '@/components/CommentModal'
 import { useState } from 'react'
+import { FloatingActionButton } from '@/components/ui/FloatingActionButton'
 
 export default function Event() {
   const [isCommentModalOpen, setIsCommentModalOpen] = useState(false)
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null)
+
+  const handleCreateEvent = () => {
+    // TODO: Implement event creation
+    console.log('Create new event')
+  }
 
   return (
     <main className="min-h-screen bg-zinc-50 bg-grid-black/[0.02] relative">
@@ -80,6 +86,11 @@ export default function Event() {
           </article>
         ))}
       </div>
+
+      <FloatingActionButton 
+        onClick={handleCreateEvent}
+        label="Add Event"
+      />
 
       <CommentModal
         isOpen={isCommentModalOpen}
