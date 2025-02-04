@@ -51,7 +51,7 @@ export const events: Event[] = [
         lat: 16.8565544,
         lng: 96.120903
       },
-      mapEmbedUrl: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6122.6607320429375!2d-73.9833212064209!3d40.762428400000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258faf553cfad%3A0x8e9cfc7444d8f876!2sTrump%20Tower!5e1!3m2!1sen!2smm!4v1738576850500!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+      mapEmbedUrl: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3868.234145708889!2d96.12540327520964!3d16.850453783948083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c195357ede6a39%3A0x2578df713e3b85c7!2sBuilding%2019%2C%20MICT%20Park!5e1!3m2!1sen!2smm!4v1738634950816!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     },
     media: [
       {

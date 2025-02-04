@@ -1,12 +1,8 @@
-'use client'
-
-import React, { useState } from 'react'
 import Image from 'next/image'
 import { CalendarDays, Heart, MessageCircle, Share2, ChevronDown, ChevronUp } from 'lucide-react'
 import { events } from './data'
 import { formatDateTime, formatNumber } from '@/lib/utils'
 import { MediaGallery } from '@/components/MediaGallery'
-import { motion, AnimatePresence } from 'framer-motion'
 import { ShareMenu } from '@/components/ShareMenu'
 import { EventDescription } from '@/components/EventDescription'
 import { LocationPreview } from '@/components/LocationPreview'
