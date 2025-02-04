@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
-  Share2, Twitter, Facebook, Linkedin, Link2, Mail, Check,
+  Share2, Twitter, Facebook, Link2, Mail, Check,
   MessageSquare
 } from 'lucide-react'
 import { toast } from 'sonner'
