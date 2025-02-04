@@ -1,3 +1,5 @@
+"use client"
+
 import Image from 'next/image'
 import { CalendarDays, Heart, MessageCircle, Share2, ChevronDown, ChevronUp } from 'lucide-react'
 import { events } from './data'
@@ -6,8 +8,13 @@ import { MediaGallery } from '@/components/MediaGallery'
 import { ShareMenu } from '@/components/ShareMenu'
 import { EventDescription } from '@/components/EventDescription'
 import { LocationPreview } from '@/components/LocationPreview'
+import { CommentModal } from '@/components/CommentModal'
+import { useState } from 'react'
 
 export default function Event() {
+  const [isCommentModalOpen, setIsCommentModalOpen] = useState(false)
+  const [selectedEventId, setSelectedEventId] = useState<string | null>(null)
+
   return (
     <main className="min-h-screen bg-zinc-50 bg-grid-black/[0.02] relative">
       <div className="max-w-5xl mx-auto p-6 space-y-16">
@@ -55,7 +62,13 @@ export default function Event() {
                 <Heart className="w-5 h-5 text-purple-500" />
                 <span className="text-zinc-700 font-medium">{formatNumber(event.engagement.likes)}</span>
               </button>
-              <button className="flex items-center gap-2 bg-white hover:bg-purple-50 px-6 py-3 rounded-xl transition duration-200 border border-zinc-200 shadow-sm">
+              <button 
+                onClick={() => {
+                  setSelectedEventId(String(event.id))
+                  setIsCommentModalOpen(true)
+                }}
+                className="flex items-center gap-2 bg-white hover:bg-purple-50 px-6 py-3 rounded-xl transition duration-200 border border-zinc-200 shadow-sm"
+              >
                 <MessageCircle className="w-5 h-5 text-purple-500" />
                 <span className="text-zinc-700 font-medium">{formatNumber(event.engagement.comments)}</span>
               </button>
@@ -67,6 +80,13 @@ export default function Event() {
           </article>
         ))}
       </div>
+
+      <CommentModal
+        isOpen={isCommentModalOpen}
+        onClose={() => setIsCommentModalOpen(false)}
+        eventId={selectedEventId || ''}
+        comments={events.find(e => String(e.id) === selectedEventId)?.comments || []}
+      />
     </main>
   )
 }
